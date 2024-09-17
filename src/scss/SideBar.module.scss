@@ -1,0 +1,31 @@
+.sidebarContainer {
+  display: flex; // Hacer el contenedor un contenedor flex
+  flex-direction: column; // Apilar los elementos verticalmente
+  justify-content:space-between ; // Distribuir el espacio entre los elementos
+    margin-top: 0%;
+    margin-left: 0%;
+    width: 250px;
+    height: 100vh;
+    background-color: #2D3748;
+    color: white;
+    padding: 24px;
+    position: fixed;
+  }
+
+  .btnlike{
+    display: flex;
+    align-items: flex-end;
+    background-color: #2D3748;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .modal.contact{
+    width: 500px;
+  }

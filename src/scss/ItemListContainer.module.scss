@@ -1,0 +1,50 @@
+// Definición de variables para colores
+$black: #0e141b;
+$white: white;
+$dark-gray: #333;
+$celeste:#0abcc2;
+
+
+
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #0e141b;
+  color: $white;
+}
+
+.customButton {
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    color: $celeste;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: $celeste;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+
+  &.active {
+    color: $celeste;
+
+    &::after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}

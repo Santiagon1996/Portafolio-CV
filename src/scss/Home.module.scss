@@ -1,0 +1,73 @@
+// Definición de variables para colores
+$black: #0e141b;
+$white: white;
+$dark-gray: #333;
+$celeste: #0abcc2;
+
+.home {
+  background-color: $black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: $white;
+
+  @media (max-width: 768px) {
+    background-size: cover;
+    height: auto;
+    padding-top: 20vh;
+  }
+  .combinedEffect {
+    text-decoration: none !important;
+  }
+}
+
+// Estilos para el texto
+.textContainer {
+  margin-left: 20px;
+  text-align: left;
+
+  // Media Query para pantallas pequeñas (max-width: 768px)
+  @media (max-width: 768px) {
+    margin-left: 10px;
+
+    h1 {
+      font-size: 24px !important;
+    }
+
+    h2 {
+      font-size: 18px !important;
+    }
+
+    p {
+      font-size: 14px !important;
+    }
+  }
+
+  // Media Query para pantallas muy pequeñas (max-width: 480px)
+  @media (max-width: 480px) {
+    .home {
+      background-image: none;
+      height: auto;
+      padding-top: 15vh;
+    }
+
+    
+
+    h1 {
+      font-size: 20px !important;
+    }
+
+    h2 {
+      font-size: 16px !important;
+    }
+
+    p {
+      font-size: 12px !important;
+    }
+  }
+}

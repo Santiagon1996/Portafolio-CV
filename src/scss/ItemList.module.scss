@@ -1,0 +1,33 @@
+$item-card-margin: 10px;
+$item-card-border-radius: 10px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 480px;
+
+.itemCard {
+  width: 300px;
+  height: 300px;
+  margin: $item-card-margin;
+  background-color: black;
+  box-shadow:  0 4px 6px rgba(33, 153, 233, 0.1);
+  border-radius: $item-card-border-radius;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  
+}
+
+@media (max-width: #{$breakpoint-md}) {
+  .item-card {
+    width: calc(50% - #{$item-card-margin});
+  }
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+  .item-card {
+    width: 100%;
+  }
+}

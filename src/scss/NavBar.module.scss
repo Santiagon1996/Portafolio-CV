@@ -1,0 +1,37 @@
+// Definición de variables para colores
+$black: #0e141b;
+$white: white;
+$dark-gray: #333;
+$celeste:#0abcc2;
+
+
+
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: $black ;
+  
+}
+
+.customButton {
+  background-color: $black; // Uso de variable para el color negro
+  color: $celeste; // Uso de variable para el color blanco
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  
+  border-color: $celeste;
+  cursor: pointer;
+  margin-top: 25px;
+
+  &:hover {
+    background-color: $celeste; // Oscurecer el fondo al pasar el mouse
+    color: $white;
+  
+  }
+}
+
