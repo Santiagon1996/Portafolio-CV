@@ -8,7 +8,7 @@ $breakpoint-sm: 480px;
   height: 300px;
   margin: $item-card-margin;
   background-color: black;
-  box-shadow:  0 4px 6px rgba(33, 153, 233, 0.1);
+  box-shadow: 0 4px 6px rgba(33, 153, 233, 0.1);
   border-radius: $item-card-border-radius;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
@@ -16,18 +16,16 @@ $breakpoint-sm: 480px;
   &:hover {
     transform: scale(1.05);
   }
-  
-  
 }
 
 @media (max-width: #{$breakpoint-md}) {
-  .item-card {
+  .itemCard {
     width: calc(50% - #{$item-card-margin});
   }
 }
 
 @media (max-width: #{$breakpoint-sm}) {
-  .item-card {
+  .itemCard {
     width: 100%;
   }
 }

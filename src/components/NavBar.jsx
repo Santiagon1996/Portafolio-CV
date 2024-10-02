@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import {
   Drawer,
   Box,
@@ -11,15 +11,15 @@ import {
   VStack,
   Text,
   Flex,
-  Icon,
   HStack,
-  Avatar,
+  Image,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { ChatIcon } from "@chakra-ui/icons";
+import { ChatIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import styles from "../scss/NavBar.module.scss";
 import FotoCV2024 from "../assets/FotoCV2024.jpg";
+import DownloadButton from "./DownloadButton";
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
@@ -45,6 +45,10 @@ const NavBar = () => {
           animate={{ scale: 1 }}
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          style={{
+            position: "fixed",
+            zIndex: 1000,
+          }}
         >
           <Button
             ref={btnRef}
@@ -52,12 +56,14 @@ const NavBar = () => {
             onClick={handleButtonClick}
             aria-label="Abrir menú"
           >
-            <Avatar
+            <Image
               marginLeft="20"
               name="Santiago A. Nardelli"
-              size="xl"
-              src={FotoCV2024}
+              boxSize="100px"
+              imagefit="cover"
               borderRadius="full"
+              src={FotoCV2024}
+              alt="Foto de perfil de Santiago Nardelli"
               aria-label="Foto de perfil de Santiago Nardelli"
             />
           </Button>
@@ -71,11 +77,16 @@ const NavBar = () => {
             stiffness: 120,
             damping: 10,
           }}
+          style={{
+            marginLeft: "auto",
+            marginRight: "0px",
+          }}
         >
           <Box>
             <Flex
               direction="row"
               align="center"
+              marginTop={20}
               w="full"
               className={styles.customButton}
             >
@@ -87,7 +98,7 @@ const NavBar = () => {
                 ml="20px"
                 onClick={handleEmailClick}
               >
-                Contact me
+                Contact
               </Button>
             </Flex>
           </Box>
@@ -101,40 +112,46 @@ const NavBar = () => {
         className={styles.drawer}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent backgroundColor="#1D3557">
           <DrawerCloseButton />
-          <DrawerHeader>Santiago A. Nardelli</DrawerHeader>
+          <DrawerHeader
+            color="#0ABCC2"
+            fontFamily="DM Serif Text"
+            letterSpacing="1px"
+          >
+            Santiago A. Nardelli
+          </DrawerHeader>
 
           <Box className="sidebar-container">
             <VStack
               spacing={4}
               align="start"
-              bg="gray.200"
+              bgColor="#457B9D"
               p={5}
               borderRightWidth="1px"
-              borderColor="gray.300"
+              borderColor="#E63946"
             >
-              <Text fontSize="lg" fontWeight="bold" color="blue.600">
+              <Text fontSize="lg" fontWeight="bold" color="#1D3557">
                 Menu
               </Text>
               <Flex direction="column" align="start" spacing={2}>
                 <Button
                   variant="ghost"
-                  leftIcon={<Icon as={React.Fragment} />}
+                  leftIcon={<ChevronRightIcon />}
                   onClick={() => navigate("/")}
                 >
                   Home
                 </Button>
                 <Button
                   variant="ghost"
-                  leftIcon={<Icon as={React.Fragment} />}
+                  leftIcon={<ChevronRightIcon />}
                   onClick={() => navigate("/skills")}
                 >
                   Skills
                 </Button>
                 <Button
                   variant="ghost"
-                  leftIcon={<Icon as={React.Fragment} />}
+                  leftIcon={<ChevronRightIcon />}
                   onClick={() => navigate("/about")}
                 >
                   About
@@ -142,12 +159,40 @@ const NavBar = () => {
               </Flex>
               <Spacer />
               <HStack spacing={4}>
-                <Button variant="outline" colorScheme="blue">
-                  Contactame
+                <Button
+                  variant="outline"
+                  colorScheme="#457B9D"
+                  bgColor="#0ABCC2"
+                  onClick={handleEmailClick}
+                >
+                  Hire Me
                 </Button>
-                <Button variant="outline" colorScheme="red">
-                  Like
-                </Button>
+                {/* <Popover placement='left-end'>
+                  <PopoverTrigger>
+                    <Button
+                      variant="outline"
+                      colorScheme="#457B9D"
+                      bgColor="#E63946"
+                      rightIcon={<i className="fas fa-download"></i>}
+                    >
+                      Download CV
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverCloseButton />
+                    <PopoverBody>
+                      <Image
+                        src={CvImg}
+                        alt="CV"
+                        width="100%"
+                        height="100%"
+                        objectFit="contain"
+                      />
+                    </PopoverBody>
+                  </PopoverContent>
+                </Popover> */}
+                <DownloadButton />
               </HStack>
             </VStack>
           </Box>

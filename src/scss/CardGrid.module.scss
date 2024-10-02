@@ -1,0 +1,91 @@
+// .box {
+//     height: 200px;
+//     transition: flex 0.5s ease-in-out;
+    
+//   }
+// .box:hover {
+//     flex: 3;
+//     transition: ease-in-out 1s;
+    
+//   }
+  
+//   .overlay {
+//     opacity: 0;
+//     transition: opacity 0.3s ease-in-out;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: 160px;
+//     color: white;
+//     font-size: 20px;
+
+    
+//   }
+
+//   .overlay:hover {
+//     opacity: 1;
+//   }
+  
+// .titles {
+//   display: flex;
+//   justify-content: center;
+//   background-color: transparent;
+//   border: 4px solid white;
+//   border-radius: 9999px; // full
+//   color: white;
+//   font-size: 1.60rem; // equivalent to lg size
+//   padding: "50px";
+//   font-family: "Fira Sans";
+//   font-weight: bold;
+//   margin-bottom: 1.875rem; // equivalent to mb={30}
+//   padding: 10px 20px;
+//   letter-spacing: 2px;
+// }
+
+.box {
+  height: 200px;
+  transition: flex 0.5s ease-in-out;
+}
+.box:hover {
+  flex: 3;
+  transition: ease-in-out 1s;
+    
+}
+
+.titles {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 4px solid white;
+  border-radius: 9999px; // full
+  color: white;
+  font-size: 1.60rem; // equivalent to lg size
+  padding: 50px;
+  font-family: "Fira Sans";
+  font-weight: bold;
+  margin-bottom: 1.875rem; // equivalent to mb={30}
+  padding: 10px 20px;
+  letter-spacing: 2px;
+}
+
+.titles:hover {
+  background-color: rgba(14, 20, 27, 0.8); // Semi-transparent black background
+  cursor: pointer; // Change cursor to indicate hover state
+}
+
+.overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 160px;
+  color: white;
+  font-size: 20px;
+}
+
+.titles:hover ~ .overlay {
+  opacity: 1; /* Appear when hovering over the title */
+}

@@ -13,6 +13,15 @@ $celeste:#0abcc2;
     width: "100vh"
     
 }
+.typingText {
+    font-family: 'DM Serif Text', serif;
+    animation: typing 4s  linear;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
 .button {
     background-color: transparent;
     border: 4px solid white;

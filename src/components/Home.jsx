@@ -1,9 +1,15 @@
-import { Box, Link, Text } from "@chakra-ui/react";
+import { Box, Link, Text} from "@chakra-ui/react";
 import styles from "../scss/Home.module.scss";
 import ItemListConteiner from "../containers/ItemListConteiner";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Home = () => {
+
+ 
+  const navigate = useNavigate();
   const textVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -17,8 +23,12 @@ const Home = () => {
 
   return (
     <>
+      
       <Box className={styles.home}>
-        <Link className={styles.combinedEffect}>
+        <Link
+          className={styles.combinedEffect}
+          onClick={() => navigate("/about")}
+        >
           <motion.div
             variants={textVariants}
             whileHover={{
@@ -75,6 +85,9 @@ const Home = () => {
         </motion.div>
       </Box>
       <ItemListConteiner />
+      
+      
+      
     </>
   );
 };

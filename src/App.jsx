@@ -16,8 +16,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<SkillsListConteiner />} />
         </Routes>
-      </BrowserRouter>
       <Footer />
+      </BrowserRouter>
     </div>
   );
 }
