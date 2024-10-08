@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { GridItem, Box, Text, Image, Heading } from "@chakra-ui/react";
+import { GridItem, Box, Text, Image, Heading, Link } from "@chakra-ui/react";
 import styles from "../scss/ItemList.module.scss";
 
 const ItemList = ({ card }) => {
@@ -43,9 +43,8 @@ const ItemList = ({ card }) => {
 
         {/* Efecto de overlay en hover */}
         <Box
-        display="flex"
-        
-        justifyContent="center"
+          display="flex"
+          justifyContent="center"
           position="absolute"
           top={0}
           left={0}
@@ -62,6 +61,11 @@ const ItemList = ({ card }) => {
           >
             <Text color="white" p={6}>
               {card.description}
+              {card.link && (
+                <Link fontSize="sm" color="gray">
+                  ({card.link})
+                </Link>
+              )}
             </Text>
           </Box>
         </Box>
@@ -77,8 +81,8 @@ ItemList.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
+    link: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   }).isRequired,
 };
 
 export default ItemList;
-

@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build:css",
+    "build": "vite build",
     "build:css": "sass src/scss/App.scss public/styles.css",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:hosting": "npm run build && npm run build:css",
+    "deploy:hosting": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -16,6 +18,7 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "firebase": "^10.13.2",
+    "firebase-storage": "^1.1.4",
     "framer-motion": "^11.3.28",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

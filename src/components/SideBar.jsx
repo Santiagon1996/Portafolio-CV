@@ -1,151 +1,93 @@
 import {
-  Box,
-  Button,
-  Link,
   VStack,
-  Avatar,
-  Icon,
+  Box,
+  Text,
+  Flex,
+  Button,
   Spacer,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  FormControl,
-  FormLabel,
-  Input,
-  ModalFooter,
-  useDisclosure,
-  FormHelperText,
-  FormErrorMessage,
+  HStack,
 } from "@chakra-ui/react";
-import { ChevronRightIcon, CheckIcon } from "@chakra-ui/icons";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useState } from "react";
-import styles from "../scss/SideBar.module.scss";
+import { ChevronRightIcon } from '@chakra-ui/icons'; import DownloadButton from "./DownloadButton";
+import { useNavigate } from "react-router-dom";
 
-const MotionBox = motion(Box);
 
-const Sidebar = () => {
-  const controls = useAnimation();
-  const { isOpen, onOpen, onClose } = useDisclosure(); // Hook de discusión para el modal
 
-  const [input, setInput] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+const SideBar = () => {
+  const navigate = useNavigate();
+  const handleNavigation = (url) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate(url);
+  };
 
-  const handleInputChange = (e) => setInput(e.target.value);
-  const handleFirstNameChange = (e) => setFirstName(e.target.value);
-  const handleLastNameChange = (e) => setLastName(e.target.value);
-
-  const isError = input === "" || !/\S+@\S+\.\S+/.test(input);
-  const isFirstNamesError = firstName.trim() === "";
-  const isLastNamesError = lastName.trim() === "";
-
-  useEffect(() => {
-    controls.start({
-      x: 0,
-      transition: { type: "spring", stiffness: 60 },
-    });
-  }, [controls]);
-
+  //Boton de email
+  const handleEmailClick = () => {
+    window.location.href =
+      "mailto:santiagoanardelli96@gmail.com?subject=Contacto&body=Hola, me gustaría contactarte.";
+  };
   return (
-    <MotionBox
-      className={styles.sidebarContainer}
-      initial={{ x: "-100%" }}
-      animate={controls}
-    >
-      <VStack spacing={6} alignItems="flex-start">
-        <Avatar
-          size="xl"
-          name="Christian Nwamba"
-          src="https://bit.ly/code-beast"
-        />
-        <Button
-          variant="ghost"
-          leftIcon={<ChevronRightIcon />}
-          rightIcon={<Link href="#">Sobre Mi</Link>}
-        />
-        <Button
-          variant="ghost"
-          leftIcon={<ChevronRightIcon />}
-          rightIcon={<Link href="#">Habilidades/Estudios</Link>}
-        />
-        <Button
-          variant="ghost"
-          leftIcon={<ChevronRightIcon />}
-          rightIcon={<Link href="#">Proyectos</Link>}
-        />
+    <Box className="sidebar-container">
+      <VStack
+        spacing={4}
+        align="start"
+        bgColor="#0e141b;"
+        p={5}
+        borderRightWidth="1px"
+        borderColor="#0e141b;"
+      >
+        <Text fontSize="lg" fontWeight="bold" color="#0ABCC2">
+          Menu
+        </Text>
+        <Flex direction="column" align="start" spacing={2}>
+          <Button
+            variant="ghost"
+            leftIcon={<ChevronRightIcon />}
+            onClick={() => handleNavigation("/")}
+            color="whitesmoke"
+            _hover={{ backgroundColor: "transparent" }}
+            _active={{ backgroundColor: "transparent" }}
+          >
+            Home
+          </Button>
+          <Button
+            variant="ghost"
+            leftIcon={<ChevronRightIcon />}
+            onClick={() => handleNavigation("/skills")}
+            color="#F1FAEE"
+            _hover={{ backgroundColor: "transparent" }}
+            _active={{ backgroundColor: "transparent" }}
+          >
+            Skills
+          </Button>
+          <Button
+            variant="ghost"
+            leftIcon={<ChevronRightIcon />}
+            onClick={() => handleNavigation("/about")}
+            color="#F1FAEE"
+            _hover={{ backgroundColor: "transparent" }}
+            _active={{ backgroundColor: "transparent" }}
+          >
+            About
+          </Button>
+        </Flex>
+        <Spacer />
+        <Flex marginBottom="50px">
+          <Text color="whitesmoke" textAlign="center">
+          On this site, you can find a little about me, my projects, jobs, hobbies and much more. I am passionate about web development and its scope. Here you will find a selection of my most notable projects, my work and educational experience, and a little more about me. I hope you enjoy your visit!
+          </Text>
+        </Flex>
+        <HStack spacing={4}>
+          <Button
+            variant="outline"
+            colorScheme="#457B9D"
+            bgColor="#0ABCC2"
+            onClick={handleEmailClick}
+          >
+            Hire Me
+          </Button>
+          <DownloadButton />
+        </HStack>
       </VStack>
-      <Spacer />
-
-      <Box className={styles.btnlike} w="full" p={2} textAlign="center">
-        <Icon as={CheckIcon} />
-        <Button
-          variant="ghost"
-          leftIcon={<ChevronRightIcon />}
-          rightIcon={
-            <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                onOpen();
-              }}
-            >
-              Contacto
-            </Link>
-          }
-        />
-      </Box>
-
-
-      <Modal  isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent maxW="600px" minW="400px"  p="20px">
-          <ModalHeader>Contact ME</ModalHeader>
-          <ModalCloseButton />
-          <FormControl isInvalid={isFirstNamesError}>
-            <FormLabel>First name</FormLabel>
-            <Input
-              placeholder="First name"
-              value={firstName}
-              onChange={handleFirstNameChange}
-            />
-            {isFirstNamesError} {" "}
-            <FormErrorMessage>First name is required.</FormErrorMessage>
-          </FormControl>
-          <FormControl isInvalid={isLastNamesError}>
-            <FormLabel>Second name</FormLabel>
-            <Input
-              placeholder="Second name"
-              value={lastName}
-              onChange={handleLastNameChange}
-            />
-            {isLastNamesError && (
-              <FormErrorMessage>Second name is required.</FormErrorMessage>
-            )}
-          </FormControl>
-          <FormControl isInvalid={isError}>
-            <FormLabel>Email</FormLabel>
-            <Input type="email" value={input} onChange={handleInputChange} />
-            {!isError ? (
-              <FormHelperText>
-                Enter the email you d like to receive the newsletter on.
-              </FormHelperText>
-            ) : (
-              <FormErrorMessage>Email is required.</FormErrorMessage>
-            )}
-          </FormControl>
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Cerrar
-            </Button>
-            <Button colorScheme="blue">Guardar</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </MotionBox>
+    </Box>
   );
 };
-
-export default Sidebar;
+export default SideBar;

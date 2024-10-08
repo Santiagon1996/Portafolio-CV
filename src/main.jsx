@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './styles.css'
 import { ChakraProvider } from "@chakra-ui/react";
 import { initializeApp } from 'firebase/app';
+//import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,6 +18,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
+//export const storage = getStorage(app);
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

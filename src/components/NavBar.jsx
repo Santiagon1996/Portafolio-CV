@@ -6,27 +6,43 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Spacer,
   Button,
-  VStack,
-  Text,
   Flex,
-  HStack,
   Image,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { ChatIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ChatIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import styles from "../scss/NavBar.module.scss";
 import FotoCV2024 from "../assets/FotoCV2024.jpg";
-import DownloadButton from "./DownloadButton";
-import { useNavigate } from "react-router-dom";
+import SideBar from "./SideBar";
+//import { storage } from "../main";
+
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
-  const navigate = useNavigate();
+  //const [profileImageURL, setProfileImageURL] = useState(null);
 
+  // const getProfileImageURL = async () => {
+  //   try {
+  //     const snapshot = await storage.ref('FotoCV2024.jpg').getDownloadURL();
+  //     return snapshot;
+  //   } catch (error) {
+  //     console.error('Error obteniendo URL de imagen:', error);
+  //     return null; // Retorna null si hay un error
+  //   }
+  // };
+  // useEffect(() => {
+  //   const fetchProfileImage = async () => {
+  //     const url = await getProfileImageURL();
+  //     setProfileImageURL(url);
+  //   };
+  
+  //   fetchProfileImage();
+  // }, []);
+  
+  
   //Boton de menú
   const handleButtonClick = useCallback(() => {
     onOpen();
@@ -36,10 +52,10 @@ const NavBar = () => {
     window.location.href =
       "mailto:santiagoanardelli96@gmail.com?subject=Contacto&body=Hola, me gustaría contactarte.";
   };
-
+ 
   return (
     <>
-      <Box className={styles.navbarContainer}>
+      <Flex alignItems="center" padding="0px 20px" backgroundColor="#0e141b" justifyContent="space-between">
         <motion.div
           initial={{ scale: 1 }}
           animate={{ scale: 1 }}
@@ -68,6 +84,7 @@ const NavBar = () => {
             />
           </Button>
         </motion.div>
+        <HamburgerIcon color="white"boxSize={6} marginTop="60px" />
         <motion.div
           initial={{ y: -250 }}
           animate={{ y: -10 }}
@@ -82,7 +99,7 @@ const NavBar = () => {
             marginRight: "0px",
           }}
         >
-          <Box>
+          
             <Flex
               direction="row"
               align="center"
@@ -101,9 +118,9 @@ const NavBar = () => {
                 Contact
               </Button>
             </Flex>
-          </Box>
+          
         </motion.div>
-      </Box>
+      </Flex>
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -112,7 +129,7 @@ const NavBar = () => {
         className={styles.drawer}
       >
         <DrawerOverlay />
-        <DrawerContent backgroundColor="#1D3557">
+        <DrawerContent backgroundColor="#0e141b">
           <DrawerCloseButton />
           <DrawerHeader
             color="#0ABCC2"
@@ -123,78 +140,7 @@ const NavBar = () => {
           </DrawerHeader>
 
           <Box className="sidebar-container">
-            <VStack
-              spacing={4}
-              align="start"
-              bgColor="#457B9D"
-              p={5}
-              borderRightWidth="1px"
-              borderColor="#E63946"
-            >
-              <Text fontSize="lg" fontWeight="bold" color="#1D3557">
-                Menu
-              </Text>
-              <Flex direction="column" align="start" spacing={2}>
-                <Button
-                  variant="ghost"
-                  leftIcon={<ChevronRightIcon />}
-                  onClick={() => navigate("/")}
-                >
-                  Home
-                </Button>
-                <Button
-                  variant="ghost"
-                  leftIcon={<ChevronRightIcon />}
-                  onClick={() => navigate("/skills")}
-                >
-                  Skills
-                </Button>
-                <Button
-                  variant="ghost"
-                  leftIcon={<ChevronRightIcon />}
-                  onClick={() => navigate("/about")}
-                >
-                  About
-                </Button>
-              </Flex>
-              <Spacer />
-              <HStack spacing={4}>
-                <Button
-                  variant="outline"
-                  colorScheme="#457B9D"
-                  bgColor="#0ABCC2"
-                  onClick={handleEmailClick}
-                >
-                  Hire Me
-                </Button>
-                {/* <Popover placement='left-end'>
-                  <PopoverTrigger>
-                    <Button
-                      variant="outline"
-                      colorScheme="#457B9D"
-                      bgColor="#E63946"
-                      rightIcon={<i className="fas fa-download"></i>}
-                    >
-                      Download CV
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent>
-                    <PopoverArrow />
-                    <PopoverCloseButton />
-                    <PopoverBody>
-                      <Image
-                        src={CvImg}
-                        alt="CV"
-                        width="100%"
-                        height="100%"
-                        objectFit="contain"
-                      />
-                    </PopoverBody>
-                  </PopoverContent>
-                </Popover> */}
-                <DownloadButton />
-              </HStack>
-            </VStack>
+            <SideBar />
           </Box>
         </DrawerContent>
       </Drawer>

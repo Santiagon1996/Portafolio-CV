@@ -109,7 +109,7 @@ const ItemListContainer = () => {
             lg: "repeat(3, 1fr)",
             xl: "repeat(4, 1fr)",
           }}
-          gap={6}
+          gap={4}
           bg="#0e141b"
           mb={100}
         >

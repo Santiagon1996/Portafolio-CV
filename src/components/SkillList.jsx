@@ -1,8 +1,8 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import styles from "../scss/CardGrid.module.scss";
+import styles from "../scss/SkillList.module.scss";
 import { motion } from "framer-motion";
 
-const CardGrid = () => {
+const SkillList = () => {
   const skills = {
     frontEnd: [
       "HTML",
@@ -159,4 +159,4 @@ const CardGrid = () => {
   );
 };
 
-export default CardGrid;
+export default SkillList;

@@ -52,7 +52,7 @@ const DownloadButton = () => {
             rightIcon={<i className="fas fa-download"></i>}
             isLoading={isLoading}
           >
-            {isLoading ? "Cargando..." : "Download CV"}
+            {isLoading ? "Cargando..." : "CV view"}
           </Button>
         </PopoverTrigger>
         <PopoverContent>
