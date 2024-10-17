@@ -16,31 +16,14 @@ import { motion } from "framer-motion";
 import styles from "../scss/NavBar.module.scss";
 import FotoCV2024 from "../assets/FotoCV2024.jpg";
 import SideBar from "./SideBar";
-//import { storage } from "../main";
+import { useMediaQuery } from 'react-responsive';
 
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
-  //const [profileImageURL, setProfileImageURL] = useState(null);
-
-  // const getProfileImageURL = async () => {
-  //   try {
-  //     const snapshot = await storage.ref('FotoCV2024.jpg').getDownloadURL();
-  //     return snapshot;
-  //   } catch (error) {
-  //     console.error('Error obteniendo URL de imagen:', error);
-  //     return null; // Retorna null si hay un error
-  //   }
-  // };
-  // useEffect(() => {
-  //   const fetchProfileImage = async () => {
-  //     const url = await getProfileImageURL();
-  //     setProfileImageURL(url);
-  //   };
-  
-  //   fetchProfileImage();
-  // }, []);
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+ 
   
   
   //Boton de menú
@@ -56,6 +39,7 @@ const NavBar = () => {
   return (
     <>
       <Flex alignItems="center" padding="0px 20px" backgroundColor="#0e141b" justifyContent="space-between">
+      {!isMobile ? (
         <motion.div
           initial={{ scale: 1 }}
           animate={{ scale: 1 }}
@@ -84,7 +68,15 @@ const NavBar = () => {
             />
           </Button>
         </motion.div>
-        <HamburgerIcon color="white"boxSize={6} marginTop="60px" />
+      ) : (
+        <HamburgerIcon
+          color="white"
+          boxSize={6}
+          marginTop="60px"
+          onClick={handleButtonClick}
+          aria-label="Abrir menú"
+        />
+      )}
         <motion.div
           initial={{ y: -250 }}
           animate={{ y: -10 }}

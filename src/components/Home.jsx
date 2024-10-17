@@ -45,7 +45,7 @@ const Home = () => {
               color="#0abcc2;"
               fontWeight="700"
               letterSpacing="1px"
-              className={styles.h1}
+              className={styles.title1}
             >
               Hello, my name is Santiago
             </Text>
@@ -62,7 +62,7 @@ const Home = () => {
             color="white"
             fontSize="8xl"
             fontFamily="DM Serif Text"
-            className={styles.h2}
+            className={styles.title2}
           >
             I make websites.
           </Text>
@@ -77,7 +77,7 @@ const Home = () => {
             marginLeft="20"
             color="white"
             fontSize="4xl"
-            className={styles.p}
+            className={styles.title3}
           >
             I am a front-end developer, passionate about website design and
             production. Lets work together!

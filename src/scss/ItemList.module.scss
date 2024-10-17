@@ -19,13 +19,9 @@ $breakpoint-sm: 480px;
 }
 
 @media (max-width: #{$breakpoint-md}) {
-  .itemCard {
-    width: calc(50% - #{$item-card-margin});
-  }
+  
 }
 
 @media (max-width: #{$breakpoint-sm}) {
-  .itemCard {
-    width: 100%;
-  }
+  
 }

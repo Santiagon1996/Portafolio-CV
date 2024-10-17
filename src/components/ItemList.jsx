@@ -58,8 +58,10 @@ const ItemList = ({ card }) => {
             opacity={0}
             transition="opacity 0.3s ease-in-out"
             _hover={{ opacity: 1 }}
+            p={6}
+            textAlign="center"
           >
-            <Text color="white" p={6}>
+            <Text color="white" >
               {card.description}
               {card.link && (
                 <Link fontSize="sm" color="gray">

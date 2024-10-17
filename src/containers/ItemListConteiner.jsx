@@ -1,14 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import {
-  Box,
-  Button,
-  Flex,
-  Text,
-  Spinner,
-  Alert,
-  Grid,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Text, Spinner, Alert } from "@chakra-ui/react";
 import ItemList from "../components/ItemList";
 import styles from "../scss/ItemListContainer.module.scss";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
@@ -102,19 +94,15 @@ const ItemListContainer = () => {
             </Button>
           ))}
         </Flex>
-        <Grid
-          templateColumns={{
-            base: "repeat(1, 1fr)",
-            md: "repeat(2, 1fr)",
-            lg: "repeat(3, 1fr)",
-            xl: "repeat(4, 1fr)",
-          }}
-          gap={4}
+        <Flex
+          justifyContent={"center"}
+          flexWrap={"wrap"}
+          gap={10}
           bg="#0e141b"
           mb={100}
         >
           {renderCards.length > 0 ? renderCards : <Text>No hay Tarjetas</Text>}
-        </Grid>
+        </Flex>
       </Box>
     </>
   );

@@ -4,6 +4,20 @@ $white: white;
 $dark-gray: #333;
 $celeste: #0abcc2;
 
+// Mixin para breakpoint
+@mixin breakpoint($bp) {
+  @if $bp == "small" {
+    @media (max-width: 480px) { @content; }
+  }
+  @else if $bp == "medium" {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $bp == "large" {
+    @media (max-width: 1024px) { @content; }
+  }
+}
+
+
 .home {
   background-color: $black;
   background-position: center;
@@ -16,7 +30,15 @@ $celeste: #0abcc2;
   align-items: flex-start;
   color: $white;
 
-  @media (max-width: 768px) {
+  @include breakpoint("small") {
+    background-size: cover;
+    height: auto;
+    padding-top: 20vh;
+    
+   
+  } 
+
+  @include breakpoint("medium") {
     background-size: cover;
     height: auto;
     padding-top: 20vh;
@@ -28,47 +50,49 @@ $celeste: #0abcc2;
 
 // Estilos para el texto
 .textContainer {
-  margin-left: 20px;
-  text-align: left;
+ 
+ 
 
-  // Media Query para pantallas pequeñas (max-width: 768px)
-  @media (max-width: 768px) {
-    margin-left: 10px;
-
-    h1 {
-      font-size: 24px !important;
+  
+  // Estilos para el título
+  .title1 {
+    
+    @include breakpoint("small") {
+      font-size: 12px;
+      margin-left: 5px;
     }
-
-    h2 {
-      font-size: 18px !important;
+    
+    @include breakpoint("medium") {
+      font-size: 18px;
+      margin-left: 50px;
     }
-
-    p {
-      font-size: 14px !important;
+  
+  
+  }
+  // Estilos para el subtítulo
+  .title2 {
+    
+    @include breakpoint("small") {
+      font-size: 12px;
+    }
+    
+    @include breakpoint("medium") {
+      font-size: 48px;
+      margin-left: 50px;
     }
   }
-
-  // Media Query para pantallas muy pequeñas (max-width: 480px)
-  @media (max-width: 480px) {
-    .home {
-      background-image: none;
-      height: auto;
-      padding-top: 15vh;
-    }
-
+  // Estilos para el texto
+  .title3 {
     
-
-    h1 {
-      font-size: 20px !important;
+    @include breakpoint("small") {
+      font-size: 12px;
     }
-
-    h2 {
-      font-size: 16px !important;
-    }
-
-    p {
-      font-size: 12px !important;
+    
+    @include breakpoint("medium") {
+      font-size: 16px;
+      margin-left: 50px;
     }
   }
 }
+
 
