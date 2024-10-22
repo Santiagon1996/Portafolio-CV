@@ -1,5 +1,5 @@
 import { Text, Box, Flex, Image, List, ListItem } from "@chakra-ui/react";
-import {CheckIcon} from "@chakra-ui/icons";
+import { CheckIcon } from "@chakra-ui/icons";
 import styles from "../scss/About.module.scss";
 import about from "../assets/home-img.jpg";
 
@@ -53,81 +53,83 @@ const About = () => {
 
   return (
     <>
-      <Box className={styles.about}>
-        <Flex
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          mb={12}
-        >
-          <Flex display="inline-block" alignItems="center">
-        <Text
-          color="white"
-          fontSize="8xl"
-          fontFamily="DM Serif Text"
-          fontWeight="bold"
-          textAlign="center"
-          mb={8}
-          overflow={"hidden"}
-          whiteSpace={"nowrap"}
-          className={styles.typingText}
-        >
-          Hey There.
-        </Text>
-      </Flex>
-          <Flex
-            width="100%"
-            maxWidth="1200px"
-            mx="auto"
-            justifyContent="space-between"
-          >
-            <Box w="48%">
-              <Image
-                src={about}
-                alt="About"
-                width={450}
-                height="auto"
-                objectFit="contain"
-                borderRadius="md"
-                boxShadow="lg"
-                _hover={{ boxShadow: "xl" }}
-              />
-            </Box>
-            <Box
-              w="70%"
-              color="white"
-              fontWeight="bold"
-              fontSize="3xl"
-              fontFamily="Fira Sans"
-            >
-              <Text mb={4} mt={8}>
-                I’m Santiago Nardelli, a front-end web developer and designer
-                based in Barcelona, Spain.
-              </Text>
-              <Text mb={4}>
-                I’ve been building stuff on the web for the last 3 years,
-                working with clients across various countries and industries.
-              </Text>
-              <Text>
-                My focus is on creating engaging, accessible & performant. I’m
-                always learning new things and experimenting.
-              </Text>
-            </Box>
-          </Flex>
-        </Flex>
-      </Box>
       <Flex
         flexDirection="column"
+        alignItems="center"
         justifyContent="center"
-        mr={550}
-        alignContent="center"
+        className={styles.aboutContainer}
+      >
+        <Flex
+          display="inline-block"
+          alignItems="center"
+          
+        >
+          <Text
+            color="white"
+            fontFamily="DM Serif Text"
+            fontWeight="bold"
+            textAlign="center"
+            mb={8}
+            overflow={"hidden"}
+            whiteSpace={"nowrap"}
+            className={styles.typingText}
+          >
+            Hey There.
+          </Text>
+        </Flex>
+
+        <Flex
+          width="100%"
+          maxWidth="1200px"
+          mx="auto"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Box w="48%" className={styles.aboutImage}>
+            <Image
+              src={about}
+              alt="About"
+              width={450}
+              height="auto"
+              objectFit="contain"
+              borderRadius="md"
+              boxShadow="lg"
+              _hover={{ boxShadow: "xl" }}
+            />
+          </Box>
+          <Box
+            
+            color="white"
+            fontWeight="bold"
+            
+            fontFamily="Fira Sans"
+            className={styles.aboutText}
+          >
+            <Text mb={4} mt={8}>
+              I’m Santiago Nardelli, a front-end web developer and designer
+              based in Barcelona, Spain.
+            </Text>
+            <Text mb={4}>
+              I’ve been building stuff on the web for the last 3 years, working
+              with clients across various countries and industries.
+            </Text>
+            <Text>
+              My focus is on creating engaging, accessible & performant. I’m
+              always learning new things and experimenting.
+            </Text>
+          </Box>
+        </Flex>
+      </Flex>
+
+       <Flex
+        className={styles.workContainer}	
       >
         <Box
           color="white"
           fontSize="6xl"
           fontFamily="DM Serif Text"
           fontWeight="bold"
-          textAlign="center"
+          alignSelf="flex-start"
           mb={8}
         >
           <Text>Work</Text>
@@ -137,9 +139,9 @@ const About = () => {
           fontWeight="bold"
           fontSize="2xl"
           fontFamily="Fira Sans"
-          width={1200}
+         
         >
-          <Text ml={350} mb={50}>
+          <Text >
             I have experience in building websites, web applications, and mobile
             applications. I have also worked on projects that involve branding,
             marketing, and SEO. I am always looking for new opportunities to
@@ -148,7 +150,7 @@ const About = () => {
         </Box>
 
         {works.map((work) => (
-          <Box key={work.id} mb={6} color="white" ml={350}>
+          <Box key={work.id}  color="white" >
             <Text fontWeight="bold" fontSize="xl" color="#0abcc2">
               {work.title}
             </Text>
@@ -171,19 +173,20 @@ const About = () => {
           fontSize="6xl"
           fontFamily="DM Serif Text"
           fontWeight="bold"
-          textAlign="center"
-          mb={8}
+          alignSelf="flex-start"
+          
+          
         >
-          <Text ml={120}>Speaking</Text>
+          <Text>Speaking</Text>
         </Box>
         <Box
           color="white"
           fontWeight="bold"
           fontSize="2xl"
           fontFamily="Fira Sans"
-          width={1200}
+          
         >
-          <Text ml={350} mb={50}>
+          <Text >
             Passionate about programming with solid training and constant
             evolution. My fascination for technology and software development
             has prompted me to acquire skills and knowledge to excel in this
@@ -198,19 +201,20 @@ const About = () => {
           fontSize="6xl"
           fontFamily="DM Serif Text"
           fontWeight="bold"
-          textAlign="center"
-          mb={8}
+          alignSelf="flex-start"
+          
+          
         >
-          <Text ml={10}>Offline</Text>
+          <Text >Offline</Text>
         </Box>
         <Box
           color="white"
           fontWeight="bold"
           fontSize="2xl"
           fontFamily="Fira Sans"
-          width={1200}
+          
         >
-          <Text ml={350} mb={50}>
+          <Text >
             I am a person who enjoys spending time with my family, friends, and
             my dog. I love to travel and explore new places. I am also a fan of
             sports and outdoor activities. I enjoy reading books and watching
@@ -218,7 +222,7 @@ const About = () => {
             dishes and recipes.
           </Text>
         </Box>
-      </Flex>
+      </Flex> 
     </>
   );
 };

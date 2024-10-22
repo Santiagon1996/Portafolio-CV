@@ -47,18 +47,17 @@ const SkillList = () => {
   return (
     <>
       <Flex
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        height="300px"
+        height="100%"
         bg="#0e141b"
-        p={4}
+        p={{ base: 2, md: 4, lg: 4 }}
+        mb={{ base: 4, md: 8, lg: 12 }}
       >
         <Flex
-          direction={{ base: "column", md: "row" }}
+          direction={{ base: "column", md: "row", lg: "row" }}
           align="center"
           justify="space-around"
           w="100%"
+          gap={{ base: 4, md: 6, lg: 6 }}
         >
           <Box
             className={styles.box}
