@@ -2,55 +2,67 @@
 $black: #0e141b;
 $white: white;
 $dark-gray: #333;
-$celeste:#0abcc2;
+$celeste: #0abcc2;
 
 // Mixin para breakpoint
 @mixin breakpoint($bp) {
   @if $bp == "small" {
-    @media (max-width: 480px) { @content; }
-  }
-  @else if $bp == "medium" {
-    @media (max-width: 768px) { @content; }
-  }
-  @else if $bp == "large" {
-    @media (max-width: 1024px) { @content; }
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $bp == "medium" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $bp == "large" {
+    @media (max-width: 1400px) {
+      @content;
+    }
   }
 }
 
-.aboutContainer{
-    background-color: $black ;
-    height: 100vh;
-    width: 100%;
-    margin-bottom: 100px;
-    margin-top: 100px;
-   
-    
+.aboutContainer {
+  background-color: $black;
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 
-.typingText {
-    animation: typing 2s  linear;
-    font-size: 120px;
-
-    @include breakpoint("small") {
-      font-size: 50px;
-      margin-top: 100px;
-      animation: none;
-    }
-    @include breakpoint("medium") {
-      font-size: 80px;
-      animation: none;
-      
-    }
-
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-  }
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  background-color: $black;
+  width: "100vh"
   
- 
-.aboutImage{
+}
+.typingText {
+  animation: typing 2s linear;
+  
+
+   @include breakpoint("small") {
+     font-size: 40px;
+   }
+   @include breakpoint("medium") {
+     font-size: 80px;
+   }
+    @include breakpoint("large") {
+     font-size: 80px;
+    }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+}
+
+.aboutImage {
   margin: 0px 50px;
 
   @include breakpoint("small") {
@@ -58,36 +70,29 @@ $celeste:#0abcc2;
   }
   @include breakpoint("medium") {
     display: none;
-    
   }
-
 }
-
-
 
 .aboutText {
   font-size: 30px;
   width: 70%;
   @include breakpoint("small") {
-   font-size: 12px;
-   margin: 10px;
+    font-size: 12px;
+    margin: 10px;
     width: 100%;
   }
   @include breakpoint("medium") {
     font-size: 18px;
-   margin: 10px;
+    margin: 10px;
     width: 100%;
-    
   }
   @include breakpoint("large") {
     font-size: 24px;
-    
-   }
+  }
 }
- 
 
-.workContainer{
-  background-color: $black ;
+.workContainer {
+  background-color: $black;
   margin-bottom: 100px;
   flex-direction: column;
   justify-content: center;
@@ -100,7 +105,5 @@ $celeste:#0abcc2;
   }
   @include breakpoint("medium") {
     margin-left: 10px;
-    
   }
- 
 }

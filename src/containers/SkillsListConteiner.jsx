@@ -6,7 +6,7 @@ const SkillsListConteiner = () => {
   
   return (
     <>
-      <Box className={styles.skills}>
+      <Box className={styles.title}>
         <Text
             color="white"
             fontSize="8xl"

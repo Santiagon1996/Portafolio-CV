@@ -3,7 +3,7 @@ $black: #0e141b;
 $white: white;
 $dark-gray: #333;
 $celeste:#0abcc2;
-.skills{
+.title{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@ $celeste:#0abcc2;
 }
 .typingText {
     font-family: 'DM Serif Text', serif;
-    animation: typing 4s  linear;
+    animation: typing 6s  linear;
   }
   
   @keyframes typing {

@@ -59,24 +59,21 @@ const About = () => {
         justifyContent="center"
         className={styles.aboutContainer}
       >
-        <Flex
-          display="inline-block"
-          alignItems="center"
-          
-        >
+         <Box className={styles.title}>
           <Text
-            color="white"
-            fontFamily="DM Serif Text"
-            fontWeight="bold"
-            textAlign="center"
-            mb={8}
-            overflow={"hidden"}
-            whiteSpace={"nowrap"}
-            className={styles.typingText}
+          color="white"
+          fontSize="8xl"
+          fontFamily="DM Serif Text"
+          fontWeight="bold"
+          textAlign="center"
+          mb={8}
+          overflow={"hidden"}
+          whiteSpace={"nowrap"}
+          className={styles.typingText}
           >
             Hey There.
           </Text>
-        </Flex>
+        </Box>
 
         <Flex
           width="100%"
@@ -98,10 +95,8 @@ const About = () => {
             />
           </Box>
           <Box
-            
             color="white"
             fontWeight="bold"
-            
             fontFamily="Fira Sans"
             className={styles.aboutText}
           >
@@ -121,9 +116,7 @@ const About = () => {
         </Flex>
       </Flex>
 
-       <Flex
-        className={styles.workContainer}	
-      >
+      <Flex className={styles.workContainer}>
         <Box
           color="white"
           fontSize="6xl"
@@ -139,9 +132,8 @@ const About = () => {
           fontWeight="bold"
           fontSize="2xl"
           fontFamily="Fira Sans"
-         
         >
-          <Text >
+          <Text>
             I have experience in building websites, web applications, and mobile
             applications. I have also worked on projects that involve branding,
             marketing, and SEO. I am always looking for new opportunities to
@@ -150,7 +142,7 @@ const About = () => {
         </Box>
 
         {works.map((work) => (
-          <Box key={work.id}  color="white" >
+          <Box key={work.id} color="white">
             <Text fontWeight="bold" fontSize="xl" color="#0abcc2">
               {work.title}
             </Text>
@@ -174,8 +166,6 @@ const About = () => {
           fontFamily="DM Serif Text"
           fontWeight="bold"
           alignSelf="flex-start"
-          
-          
         >
           <Text>Speaking</Text>
         </Box>
@@ -184,9 +174,8 @@ const About = () => {
           fontWeight="bold"
           fontSize="2xl"
           fontFamily="Fira Sans"
-          
         >
-          <Text >
+          <Text>
             Passionate about programming with solid training and constant
             evolution. My fascination for technology and software development
             has prompted me to acquire skills and knowledge to excel in this
@@ -202,19 +191,16 @@ const About = () => {
           fontFamily="DM Serif Text"
           fontWeight="bold"
           alignSelf="flex-start"
-          
-          
         >
-          <Text >Offline</Text>
+          <Text>Offline</Text>
         </Box>
         <Box
           color="white"
           fontWeight="bold"
           fontSize="2xl"
           fontFamily="Fira Sans"
-          
         >
-          <Text >
+          <Text>
             I am a person who enjoys spending time with my family, friends, and
             my dog. I love to travel and explore new places. I am also a fan of
             sports and outdoor activities. I enjoy reading books and watching
@@ -222,7 +208,7 @@ const About = () => {
             dishes and recipes.
           </Text>
         </Box>
-      </Flex> 
+      </Flex>
     </>
   );
 };

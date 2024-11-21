@@ -12,6 +12,7 @@ const SkillList = () => {
       "Sass",
       "JavaScript",
       "React",
+      "Angular",
       "Vite",
       "Context",
       "Redux",
@@ -41,6 +42,8 @@ const SkillList = () => {
       "WebStorm",
       "Photoshop",
       "Illustrator",
+      " Jenkins",
+      "Docker"
     ],
     languages: ["Spanish", "English", "Italian"],
   };
